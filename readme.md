@@ -351,22 +351,35 @@ void temperature_threshold()
 ```
 ## 4. Xây dựng Web Server và ThingSpeak
 a) Hướng dẫn sử dụng Web Server  
-- Bước 1: chuẩn bị code HTML có sẵn css và các chức năng cần thiết (hiển thị đại lượng đo, lấy giá trị text)  
+- Bước 1: chuẩn bị code HTML có sẵn css và các chức năng cần thiết (hiển thị đại lượng đo, lấy giá trị text)   
+
  ![example](Ảnh1.png)  
-- Bước 2: khởi động server tại cổng 81, vào web bằng IP đã cấp sau khi gateway hoạt động  
- ( vd: 192.168.1.1:81)  
+
+- Bước 2: khởi động server tại cổng 81, vào web bằng IP đã cấp sau khi gateway hoạt động ( vd: 192.168.1.1:81)  
+
   ![example](Ảnh2.png)  
-- Bước 3: Tại đây nhiệt độ sẽ được cập nhật  mỗi 10s, muốn điều khiển ngưỡng nhiệt ta cần nhập đoạn text “abcdef” trong đó “abc” là nhiệt độ ngưỡng 1, “def”là nhiệt độ ngưỡng 2, sau đó ấn và giữ nút đo trên End node ấn submit sau đó nhiệt độ tại End Node đã được cập nhật.  
+
+- Bước 3: Tại đây nhiệt độ sẽ được cập nhật  mỗi 10s, muốn điều khiển ngưỡng nhiệt ta cần nhập đoạn text “abcdef” trong đó “abc” là nhiệt độ ngưỡng 1, “def”là nhiệt độ ngưỡng 2, sau đó ấn và giữ nút đo trên End node ấn submit sau đó nhiệt độ tại End Node đã được cập nhật. 
+ 
 ![example](Ảnh3.png)   
+
 b) Hướng dẫn sử dụng thinkspeak
-- Bước 1: - Đăng ký một tài khoản tại https://thingspeak.com/users/sign_up, tạo channel để lưu dữ liệu.  
+- Bước 1: - Đăng ký một tài khoản tại https://thingspeak.com/users/sign_up, tạo channel để lưu dữ liệu. 
+ 
 ![example](Ảnh4.png)  
-- Bước 2: Sau khi tạo channel, chú ý thông tin quan trọng của channel là API Keys (quyền đọc/ghi dữ liệu).  
- ![example](Ảnh5.png)  
+
+- Bước 2: Sau khi tạo channel, chú ý thông tin quan trọng của channel là API Keys (quyền đọc/ghi dữ liệu). 
+ 
+ ![example](Ảnh5.png) 
+
 - Bước 3:  Gửi dữ liệu lên Thingspeak sau khi chạy code, Thingspeak sẽ nhận được data. Sau khi lấy nhiệt độ từ End nodequa biến temperature sẽ sử dụng các câu lệnh để gửi lên thingspeak qua cổng 80 vào field 1 ta sẽ được kết quả như hình dưới.  
- ![example](Ảnh61.png)  
+
+ ![example](Ảnh61.png) 
+
   ![example](Ảnh7.png)  
-- Bước 4: Xuất file Excel data: vào mục Data Import/ Export, chọn export GMT : +7.00 và Dowload ta được data của cảm biến    
+
+- Bước 4: Xuất file Excel data: vào mục Data Import/ Export, chọn export GMT : +7.00 và Dowload ta được data của cảm biến  
+  
   ![example](Ảnh8.png)  
 
 
