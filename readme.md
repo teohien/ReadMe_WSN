@@ -158,7 +158,7 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 
 ## 2. Xây dựng EndNode
 ### 2.1 Cơ chế hoạt động  
--- EndNode: chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s
+-- EndNode: chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s  
 +) Giữ nút 1 lúc > 1s thì vào chế độ: Nhận dữ liệu từ Gateway để cập nhật ngưỡng nhiệt độ
 + kiểm tra địa chỉ xem có phải gửi cho EndNode này hoặc Broadcast không, đúng mới nhận, còn không thì không nhận  
 + Dữ liệu truyền đi dạng abcdef: abc = T_Blue, def = T_Yellow  
@@ -166,7 +166,7 @@ Giả sử: nhiệt độ đo được là temp_current
 temp_current <= T_Blue:  bật đèn xanh  
 T_Blue < temp_current <= T_Yellow: bật đèn vàng  
 temp_current > T_Yellow: bật đèn đỏ 
- 
+
 +) Khi nhấn nút < 1s: bắt đầu đo nhiệt độ và gửi dữ liệu lên Gateway, gửi xong vào chế độ ngủ  
 + Hiển thị Led theo ngưỡng nhiệt trong 0.5s   
 ### 2.2 Một số hàm quan trọng  
