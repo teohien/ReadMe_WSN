@@ -132,8 +132,8 @@ Serial trên Adrunino có chế độ **Show Timestamp** để hiển thị th�
 
 # II. Triển khai dự án
 ## 1. Sơ đồ chân 
+**-- Endnode**  
 
-**Endnode**  
 | lora sx1278  | esp32  |
 |:---:|:---:|
 |3.3V|3.3V   |
@@ -144,7 +144,9 @@ Serial trên Adrunino có chế độ **Show Timestamp** để hiển thị th�
 | MISO     |D19   |
 | MOSI  |D23   |
 | RST  |D14   |  
-**Gateway**  
+
+**-- Gateway**  
+
 | lora sx1278  | esp32  |
 |:---:|:---:|
 |3.3V|3.3V   |
@@ -160,3 +162,5 @@ Serial trên Adrunino có chế độ **Show Timestamp** để hiển thị th�
 |  Led xanh |D25   |
 |  Led vàng |D26   |
 |  Led đỏ |D27 |  
+
+
