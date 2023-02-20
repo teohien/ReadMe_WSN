@@ -158,15 +158,16 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 
 ## 2. Xây dựng EndNode
 ### 2.1 Cơ chế hoạt động  
-EndNode: chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s
-- Giữ nút 1 lúc > 1s thì vào chế độ: Nhận dữ liệu từ Gateway để cập nhật ngưỡng nhiệt độ
+-- EndNode: chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s
++) Giữ nút 1 lúc > 1s thì vào chế độ: Nhận dữ liệu từ Gateway để cập nhật ngưỡng nhiệt độ
 + kiểm tra địa chỉ xem có phải gửi cho EndNode này hoặc Broadcast không, đúng mới nhận, còn không thì không nhận  
 + Dữ liệu truyền đi dạng abcdef: abc = T_Blue, def = T_Yellow  
 Giả sử: nhiệt độ đo được là temp_current  
 temp_current <= T_Blue:  bật đèn xanh  
 T_Blue < temp_current <= T_Yellow: bật đèn vàng  
-temp_current > T_Yellow: bật đèn đỏ  
-- Khi nhấn nút < 1s: bắt đầu đo nhiệt độ và gửi dữ liệu lên Gateway, gửi xong vào chế độ ngủ  
+temp_current > T_Yellow: bật đèn đỏ 
+ 
++) Khi nhấn nút < 1s: bắt đầu đo nhiệt độ và gửi dữ liệu lên Gateway, gửi xong vào chế độ ngủ  
 + Hiển thị Led theo ngưỡng nhiệt trong 0.5s   
 ### 2.2 Một số hàm quan trọng  
 a) Hàm gửi dữ liệu:  
@@ -240,13 +241,14 @@ e) Hàm đưa End Node vào chế độ nhận ngưỡng nhiệt từ Ga
 ```
 ## 3. Xây dựng Gateway  
 ### 3.1 Cơ chế hoạt động  
- - Nhận dữ liêu nhiệt độ đo được từ EndNode và hiển thị lên ThingSpeak, xuất file excel
+-- Nhận dữ liêu nhiệt độ đo được từ EndNode và hiển thị lên ThingSpeak, xuất file excel
 + Kiểm tra xem dữ liệu có phải được gửi từ 10 địa chỉ Endnode đã cấp trước không, nếu đúng thì mới nhận, còn không thì không nhận  
 + Kiểm tra địa chỉ xem có phải gửi cho Gateway hoặc Broadcast không  
 + Kiểm tra xem có phải chỉ số bản tin mới không ( tránh trường hợp tấn công bản tin gây treo hệ thống ).  
 => Các điều kiện kiểm tra đúng thì mới nhận gói tin.  
 + Có dữ liệu nhiệt độ mới thì đẩy lên ThingSpeak để hiển thị và xuất file Excel.  
-- Tạo Web Server để cập nhật ngưỡng nhiệt  
+
+-- Tạo Web Server để cập nhật ngưỡng nhiệt  
 + Có hiển thị nhiệt độ mới nhận được từ Endnode  
 + Nhận dữ liệu cập nhật ngưỡng từ Web Server,khi ngưỡng nhiệt độ thay đổi thì mới gửi xuống EndNode để thay đổi ngưỡng.  
 + Dữ liệu truyền đi dạng abcdef: abc = temp_blue, def = temp_yellow  
