@@ -92,11 +92,11 @@ Chọn Framwork là Arduino:
 
 ![exapmle](platfomrio-thu-vien-2-669x400.png)
 
--- Thao tác này sẽ thêm code định danh thư viện bằng cách sử dụng lid_depschỉ thị trên file platformio.ini . Nếu mở file platformio.ini của dự án , nó sẽ trông nh thể hiện trong hình ảnh sau.  
+-- Thao tác này sẽ thêm code định danh thư viện bằng cách sử dụng lid_depschỉ thị trên file platformio.ini . Nếu mở file platformio.ini của dự án , nó sẽ trông như trong hình ảnh sau.  
 
 ![example](platfomrio-thu-vien-4-768x357.png)
 
--- Ngoài ra, trên cửa sổ thư viện, nếu chọn tab Installation và cuộn một chút, bạn sẽ thấy code định danh cho thư viện. Có thể chọn bất kỳ số nhận dạng nào tùy thuộc vào tùy chọn muốn sử dụng. Các mã nhận dạng thư viện được đánh dấu màu đỏ.
+-- Ngoài ra, trên cửa sổ thư viện, nếu chọn tab Installation và cuộn một chút, sẽ thấy code định danh cho thư viện. Có thể chọn bất kỳ số nhận dạng nào tùy thuộc vào tùy chọn muốn sử dụng. Các mã nhận dạng thư viện được đánh dấu màu đỏ.
 
 ![example](platfomrio-thu-vien-5-513x400.png)
 
@@ -109,7 +109,7 @@ Nhớ giữ lại **#include <Arduino.h>** nhé!
 
 ![example](Screenshot_2-744x400.jpg)
 
--- Sau đó nhấn Build để biên dịch chương trình, Khi terminal báo Success là ok. Nếu chương trình có lỗi, hãy chuển tab Problems để view lỗi nhé!  
+-- Sau đó nhấn Build để biên dịch chương trình, Khi terminal báo Success là ok. Nếu chương trình có lỗi, hãy chuyển tab Problems để view lỗi nhé!  
 -- Cắm mạch vào và nhấn Upload, nếu đến đoạn connecting mà vscode ko tìm thấy esp, nhấn nút BOOT trên mạch giữ 1 chút rồi nhả ra nhé. Để ESP vào chế độ Nạp.
 
 ![example](Screenshot_3-768x130.jpg)
