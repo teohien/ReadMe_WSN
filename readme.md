@@ -1,3 +1,20 @@
+
+# Tổng quan dự án mạng cảm biến không dây sử dụng công nghệ Lora  
+-- Dự án này nhằm tạo ra một mạng cảm biến không dây có dùng để đo và quản lý nhiệt độ, hiển thị nhiệt độ đo được và xuất file Excel để lưu giữ.  
+
+Đáp ứng các yêu cầu:  
+- Dải đo: 25 ÷ $125^o$C   
+- Độ chính xác: $1^o$C   
+- Độ phân giải hiển thị: $0.1^o$C  
+- Nguồn pin, thời gian hoạt động của thiết bị là 4h (nâng cao: 8h). Pin có thể sạc trực tiếp trên máy hoặc tháo ra ngoài  
+- Kích thước (dự kiến): 70x50x100 mm (kiểu trụ để dễ cầm tay)  
+- Trọng lượng (dự kiến): <150g.   
+- Thời gian đo một mẫu : <20s. (nâng cao < 5s)  
+- Kết nối máy tính: RF  Khoảng cách truyền trong phạm vi 20m từ hệ thống đo đến trạm thu RF có nối nguồn và mạng.     
+Quản lý tối thiểu cho 10 thiết bị đo. (nâng cao: phương án mở rộng số thiết bị với khoảng cách từ thiết bị đến trạm tiếp nhận có thể lên tới 100m)  
+- Phần mềm máy tính: thu thập giá trị đo từ thiết bị đo, quản lý dữ liệu, xuất báo cáo dạng excel, giao diện theo mẫu thống nhất.  
+- Có nút bấm bắt đầu đo; Đèn LED báo ngưỡng nhiệt độ (3 LED);  
+- OTA (nâng cao): Các ngưỡng nhiệt độ có thể cập nhật từ máy tính.   
 # I. Cài đặt và sử dụng phầm mềm
 ## 1. Platform IO lập trình ESP32
 **Ứng dụng trong dự án:** Lập trình vi điều khiển ESP32 cho End Devices và Gateway.
