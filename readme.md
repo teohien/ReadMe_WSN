@@ -179,6 +179,7 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 -- Tuy nhiên, bộ nhớ RTC vẫn được bật. Vì vậy, nội dung của nó được bảo quản trong Deep Sleep và có thể được lấy ra sau khi chip được đánh thức. Đó là lý do mà chip lưu trữ dữ liệu ngưỡng nhiệt trước đó.    
 -- Khi Wake up khỏi Deep Sleep, ESP32 sẽ hoạt động lại từ đầu, tương tự như việc reset vậy.  
 -- Trong chế độ này ESP32 tiêu thụ từ 10µA đến 0.15mA (thấp hơn nhiều lần so với năng lượng tiêu thụ khi ở chế độ Active Mode).  
+
 ![example](deepsleep.png)
 ### 2.3 Một số hàm quan trọng  
 a) Hàm gửi dữ liệu:  
@@ -205,7 +206,17 @@ c) Hàm thức giấc Endnode bằng cách nhấn nút
 //Cài đặt chân 15 để làm nút nhấn
   esp_sleep_enable_ext0_wakeup(GPIO_NUM_15,1); //1 = High, 0 = Low
 ```
-d) Hàm nhận và cập nhật ngưỡng nhiệt cho Endnode
+d) Hàm đưa End Node vào chế độ nhận ngưỡng nhiệt từ Gateway
+```c
+// Nếu vẫn đang nhấn nút thì vào chế độ nhận ngưỡng nhiệt
+  while(digitalRead(btnPin) == HIGH)
+  {
+  Serial.println("In the case of receiving heat threshold");
+	onReceive(LoRa.parsePacket()); 
+  }	
+```
+
+e) Hàm nhận và cập nhật ngưỡng nhiệt cho Endnode
 ```c
 // Hàm nhận dữ liệu để thay đổi ngưỡng nhiệt
 void onReceive(int packetSize) {
@@ -241,15 +252,7 @@ void onReceive(int packetSize) {
     Serial.println("Yellow Temperature Threshold: " + String (T_Yellow));
   }
 ```
-e) Hàm đưa End Node vào chế độ nhận ngưỡng nhiệt từ Gateway
-```c
-// Nếu vẫn đang nhấn nút thì vào chế độ nhận ngưỡng nhiệt
-  while(digitalRead(btnPin) == HIGH)
-  {
-  Serial.println("In the case of receiving heat threshold");
-	onReceive(LoRa.parsePacket()); 
-  }	
-```
+
 ## 3. Xây dựng Gateway  
 ### 3.1 Cơ chế hoạt động  
 -- Nhận dữ liêu nhiệt độ đo được từ EndNode và hiển thị lên ThingSpeak, xuất file excel
