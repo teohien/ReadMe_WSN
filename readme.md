@@ -172,7 +172,7 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 -- Khi nhấn nút < 1s: bắt đầu đo nhiệt độ và gửi dữ liệu lên Gateway, gửi xong vào chế độ ngủ.    
 + Hiển thị Led theo ngưỡng nhiệt trong 0.5s.  
 ### 2.2 Deep Sleep Mode  
-[Link tìm hiểu về Sleep Mode](https://khuenguyencreator.com/lap-trinh-esp32-sleep-mode-che-do-ngu-tiet-kiem-nang-luong/)
+[Link tìm hiểu về Sleep Mode](https://khuenguyencreator.com/lap-trinh-esp32-sleep-mode-che-do-ngu-tiet-kiem-nang-luong/)  
 -- Ở dự án này, bọn em sẽ chọn chế độ Sleep mạnh nhất, đó là Deep Sleep Mode.  
 -- Với chế độ Deep Sleep, CPU, RAM và tất cả các ngoại vi đều bị tắt. Các bộ phận duy nhất của chip vẫn được cấp nguồn là: bộ RTC, ngoại vi RTC (bao gồm bộ ULP) và bộ nhớ RTC.  
 -- CPU chính bị tắt nguồn còn bộ ULP thực hiện các phép đo cảm biến và đánh thức hệ thống chính dựa trên dữ liệu đo được.  
