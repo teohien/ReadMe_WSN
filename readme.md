@@ -158,18 +158,29 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 
 ## 2. Xây dựng EndNode
 ### 2.1 Cơ chế hoạt động  
--- EndNode: chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s  
-+) Giữ nút 1 lúc > 1s thì vào chế độ: Nhận dữ liệu từ Gateway để cập nhật ngưỡng nhiệt độ
-+ kiểm tra địa chỉ xem có phải gửi cho EndNode này hoặc Broadcast không, đúng mới nhận, còn không thì không nhận  
+**EndNode:** Chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s.  
+-- Giữ nút 1 lúc > 1s thì vào chế độ: Nhận dữ liệu từ Gateway để cập nhật ngưỡng nhiệt độ.  
++ kiểm tra địa chỉ xem có phải gửi cho EndNode này hoặc Broadcast không, đúng mới nhận, còn không thì không nhận.
++ Khi nhận được gói tin sẽ tiến hành phân tích và cập nhật ngưỡng nhiệt mới.  
 + Dữ liệu truyền đi dạng abcdef: abc = T_Blue, def = T_Yellow  
-Giả sử: nhiệt độ đo được là temp_current  
-temp_current <= T_Blue:  bật đèn xanh  
-T_Blue < temp_current <= T_Yellow: bật đèn vàng  
-temp_current > T_Yellow: bật đèn đỏ 
+  Giả sử nhiệt độ đo được là temp_current  
+  Temp_current <= T_Blue:  bật đèn xanh  
+  T_Blue < Temp_current <= T_Yellow: bật đèn vàng  
+  Temp_current > T_Yellow: bật đèn đỏ  
++ Thả nút sẽ thoát khỏi chế độ nhận dữ liệu, đo và hiển thị Led xem có đúng với ngưỡng cập nhật không, rồi lại vào chế độ ngủ.   
 
-+) Khi nhấn nút < 1s: bắt đầu đo nhiệt độ và gửi dữ liệu lên Gateway, gửi xong vào chế độ ngủ  
-+ Hiển thị Led theo ngưỡng nhiệt trong 0.5s   
-### 2.2 Một số hàm quan trọng  
+-- Khi nhấn nút < 1s: bắt đầu đo nhiệt độ và gửi dữ liệu lên Gateway, gửi xong vào chế độ ngủ.    
++ Hiển thị Led theo ngưỡng nhiệt trong 0.5s.  
+### 2.2 Deep Sleep Mode
+-- Ở dự án này, bọn em sẽ chọn chế độ Sleep mạnh nhất, đó là Deep Sleep Mode.  
+-- Với chế độ Deep Sleep, CPU, RAM và tất cả các ngoại vi đều bị tắt. Các bộ phận duy nhất của chip vẫn được cấp nguồn là: bộ RTC, ngoại vi RTC (bao gồm bộ ULP) và bộ nhớ RTC.  
+-- CPU chính bị tắt nguồn còn bộ ULP thực hiện các phép đo cảm biến và đánh thức hệ thống chính dựa trên dữ liệu đo được.  
+-- Cùng với CPU, bộ nhớ chính của chip cũng bị tắt. Vì vậy, mọi thứ được lưu trữ trong bộ nhớ đó bị xóa sạch và không thể truy cập được.  
+-- Tuy nhiên, bộ nhớ RTC vẫn được bật. Vì vậy, nội dung của nó được bảo quản trong Deep Sleep và có thể được lấy ra sau khi chip được đánh thức. Đó là lý do mà chip lưu trữ dữ liệu ngưỡng nhiệt trước đó.    
+-- Khi Wake up khỏi Deep Sleep, ESP32 sẽ hoạt động lại từ đầu, tương tự như việc reset vậy.  
+-- Trong chế độ này ESP32 tiêu thụ từ 10µA đến 0.15mA (thấp hơn nhiều lần so với năng lượng tiêu thụ khi ở chế độ Active Mode).  
+![example](deepsleep.png)
+### 2.3 Một số hàm quan trọng  
 a) Hàm gửi dữ liệu:  
 ```c
 void sendMessage(byte* outgoing) {
