@@ -1,6 +1,6 @@
 
 # Tổng quan dự án mạng cảm biến không dây sử dụng công nghệ Lora  
--- Dự án này nhằm tạo ra một mạng cảm biến không dây có dùng để đo và quản lý nhiệt độ, hiển thị nhiệt độ đo được và xuất file Excel để lưu giữ.  
+-- Dự án này nhằm tạo ra một mạng cảm biến không dây có dùng để đo và quản lý nhiệt độ, hiển thị nhiệt độ đo được và xuất file Excel để lưu trữ.  
 
 Đáp ứng các yêu cầu:  
 - Dải đo: 25 ÷ $125^o$C   
