@@ -42,7 +42,7 @@ Chọn Framwork là Arduino:
 
 **Gồm :**
 - **Phần cây thư mục dự án:** cho chúng ta thêm, sửa, xóa các file nhanh
-Phần Text editor: là nơi viết code
+- **Phần Text editor:** là nơi viết code 
 - **Cửa sổ Terminal:** Nơi gõ các câu lênh
 - **Thanh công cụ:** Lần lượt là Home, Build, Upload code, Clean, Serial Monitor(màn hình serial), Terminal
 - **Thư mục Src:** Chứa Source code của chương trình, đây là nơi lưu trữ code và bạn sẽ code trên đó. File thực thi chính là: main.cpp
