@@ -1,5 +1,8 @@
 
 # Tổng quan dự án mạng cảm biến không dây sử dụng công nghệ Lora  
+
+![example](Gateways_and_End_Devices.png)
+
 -- Dự án này nhằm tạo ra một mạng cảm biến không dây có dùng để đo và quản lý nhiệt độ, hiển thị nhiệt độ đo được và xuất file Excel để lưu trữ.  
 
 Đáp ứng các yêu cầu:  
@@ -277,7 +280,6 @@ void onReceive(int packetSize) {
     Serial.println("Yellow Temperature Threshold: " + String (T_Yellow));
   }
 ```
----
 ## 3. Xây dựng Gateway  
 ### 3.1 Cơ chế hoạt động  
 -- Nhận dữ liêu nhiệt độ đo được từ EndNode và hiển thị lên ThingSpeak, xuất file excel
