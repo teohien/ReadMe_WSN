@@ -371,7 +371,6 @@ a) Hướng dẫn sử dụng Web Server
 ![example](Ảnh1.png)  
 
 - Bước 2: khởi động server tại cổng 81, vào web bằng IP đã cấp sau khi gateway hoạt động ( vd: 192.168.1.1:81)  
-
 ![example](Ảnh2.png)  
 
 - Bước 3: Tại đây nhiệt độ sẽ được cập nhật  mỗi 10s, muốn điều khiển ngưỡng nhiệt ta cần nhập đoạn text “abcdef” trong đó “abc” là nhiệt độ ngưỡng 1, “def”là nhiệt độ ngưỡng 2, sau đó ấn và giữ nút đo trên End node ấn submit sau đó nhiệt độ tại End Node đã được cập nhật. 
