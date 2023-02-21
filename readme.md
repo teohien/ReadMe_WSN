@@ -14,7 +14,9 @@
 Quản lý tối thiểu cho 10 thiết bị đo. (nâng cao: phương án mở rộng số thiết bị với khoảng cách từ thiết bị đến trạm tiếp nhận có thể lên tới 100m)  
 - Phần mềm máy tính: thu thập giá trị đo từ thiết bị đo, quản lý dữ liệu, xuất báo cáo dạng excel, giao diện theo mẫu thống nhất.  
 - Có nút bấm bắt đầu đo; Đèn LED báo ngưỡng nhiệt độ (3 LED);  
-- OTA (nâng cao): Các ngưỡng nhiệt độ có thể cập nhật từ máy tính.   
+- OTA (nâng cao): Các ngưỡng nhiệt độ có thể cập nhật từ máy tính. 
+---
+---  
 # I. Cài đặt và sử dụng phầm mềm
 ## 1. Platform IO lập trình ESP32
 **Ứng dụng trong dự án:** Lập trình vi điều khiển ESP32 cho End Devices và Gateway.
@@ -110,7 +112,8 @@ Nhớ giữ lại **#include <Arduino.h>** nhé!
 
 -- Sau khi nạp xong, thì xem thành quả thôi!!!
 
-## 3. Arduino
+---
+## 2. Arduino
 **Ứng dụng trong dự án:** UART để hiển thị các dữ liệu truyền nhận được giữa End Devices và Gateway, hỗ trợ mô phỏng để kiểm tra dữ liệu theo thời gian.  
 [Link hướng dẫn chi tiết](https://khuenguyencreator.com/bai-1-huong-dan-cai-dat-arduino-ide-va-cach-them-thu-vien/)  
 **Bước 1:** Truy cập địa chỉ này để cài đặt [Arduino IDE](https://www.arduino.cc/pro/software-arduino-pro-ide/). Đây là nơi lưu trữ cũng như cập nhật các bản IDE của Arduino. Bấm vào mục **Windows ZIP file**  như hình minh họa.  
@@ -140,6 +143,9 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 -- Serial trên Adrunino có chế độ **Show Timestamp** để hiển thị thời gian truyền nhận đến **ms**.
 
 ![example](serialcom5.png)
+
+---
+---
 # II. Triển khai dự án
 ## 1. Sơ đồ chân 
 **-- Gateway**  
@@ -173,6 +179,7 @@ Như vậy chúng ta đã cài đặt Arduino IDE xong.
 |  Led vàng |D26   |
 |  Led đỏ |D27 |  
 
+---
 ## 2. Xây dựng EndNode
 ### 2.1 Cơ chế hoạt động  
 **EndNode:** Chủ yếu ở chế độ chỉ gửi dữ liệu, thời gian thức khoảng 2s.  
@@ -270,7 +277,7 @@ void onReceive(int packetSize) {
     Serial.println("Yellow Temperature Threshold: " + String (T_Yellow));
   }
 ```
-
+---
 ## 3. Xây dựng Gateway  
 ### 3.1 Cơ chế hoạt động  
 -- Nhận dữ liêu nhiệt độ đo được từ EndNode và hiển thị lên ThingSpeak, xuất file excel
